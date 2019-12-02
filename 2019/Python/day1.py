@@ -2,7 +2,7 @@ from math import floor
 
 def part_one():
 
-	print(sum([*map(lambda a : a//3 - 2,[int(i) for i in open('day1.input')])]))
+	# print(sum([*map(lambda a : a//3 - 2,[int(i) for i in open('day1.input')])]))
 
 
 	a = lambda a: a//3-2
