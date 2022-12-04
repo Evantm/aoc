@@ -22,12 +22,9 @@ print(sum_)
 
 sum_2 = 0
 input_lines_list = input_lines.split('\n')
-print(len(input_lines_list))
 for line_index in range(0,len(input_lines_list),3):
-	# print(line_index,line_index+1,line_index+2)
-	# print(input_lines_list[line_index],input_lines_list[line_index+1],input_lines_list[line_index+2])
 	common = list(set(input_lines_list[line_index]).intersection(set(input_lines_list[line_index+1])).intersection(set(input_lines_list[line_index+2])))[0]
-	print(common)
+
 	if common.isupper(): sum_2 += ord(common)-38
 	elif common.islower(): sum_2 += ord(common)-96
 print(sum_2)
