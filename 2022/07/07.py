@@ -26,7 +26,7 @@ $ ls
 5626152 d.ext
 7214296 k'''
 
-dir_dict = { '!': 0 }
+dir_dict = defaultdict(int)
 sum_1 = 0
 current_dir = ['!']
 for line in input_lines.split('\n'):
@@ -36,13 +36,12 @@ for line in input_lines.split('\n'):
 		else: current_dir.append(line.split(' ')[-1])
 	elif line.startswith('$ ls'): pass
 	else:
-		if line.startswith('dir'): 
-		#add to parent
-			dir_dict[''.join(current_dir)+line.split(' ')[1]] = 0
-		else:
+		if not line.startswith('dir'): 
 			file_size = int(line.split(' ')[0])
 			for i in range(len(current_dir)):
 				dir_dict[''.join(current_dir[:i+1])] += file_size
+
+
 sum_2 = 10**80 # hope this is big enough
 smallest_needed = (30000000 - (70000000 - dir_dict['!'])) # free space
 for k,v in dir_dict.items():
